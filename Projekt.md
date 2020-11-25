@@ -8,7 +8,7 @@ System tworzony jest na potrzeby firmy EY.
 * Wyświetlenie przykładowych wiadomości dla zadanego hashtaga i sentymentu.
  
 ### Architektura systemu na platformie Azure 
-![Diagram architektury](http://url/to/img.png)
+![](https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20architektury.png)
 
 ### Stos technologiczny
 |||
