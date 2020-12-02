@@ -12,7 +12,9 @@ System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com
 * Wyświetlenie przykładowych wiadomości dla zadanego hashtaga i sentymentu.
 
 ### Schemat działania rozwiązania
-![](https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20dzialania.png)
+<p align="center">
+  <img src="https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20dzialania.png" />
+</p>
 
 ### Architektura systemu na platformie Azure 
 ![](https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20architektury.png)
