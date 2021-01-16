@@ -16,6 +16,7 @@ max_days_until = int(os.getenv('MAX_DAYS_UNTIL'))
 language = 'pl'
 
 auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
+# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 # auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
