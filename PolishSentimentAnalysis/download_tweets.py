@@ -27,8 +27,8 @@ def get_tweets(hashtag, count, since, until):
     tweets = list()
     for i in range(0, days_count):
         tweets_cursor = tweepy.Cursor(api.search, q=hashtag, lang=language,
-                                      since=str(until - timedelta(days=days_count - i + 1)),
-                                      until=str(until - timedelta(days=days_count - i)),
+                                      since=str(until - timedelta(days=days_count - i)),
+                                      until=str(until - timedelta(days=days_count - i - 1)),
                                       tweet_mode='extended').items(tweets_per_day)
         tweets.extend(tweets_cursor)
 
@@ -75,4 +75,3 @@ def mock_sentiment(df):
     df['sentiment'] = sentiment
     
     return df
-
