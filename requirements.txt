@@ -1,0 +1,5 @@
+urllib
+Flask
+python-dotenv
+python-dateutil
+pandas
