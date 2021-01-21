@@ -1,10 +1,11 @@
 import tweepy
+import pandas as pd
 from dotenv import load_dotenv
 from dateutil import parser
 import os
 from datetime import date, timedelta
-from tweet import Tweet
-
+from math import ceil
+from random import choices
 
 load_dotenv()
 consumer_secret = os.getenv('CONSUMER_SECRET')
@@ -22,10 +23,17 @@ api = tweepy.API(auth)
 
 
 def get_tweets(hashtag, count, since, until):
-    hashtag, count, since, until = prepare(hashtag, count, since, until)
-    tweets = tweepy.Cursor(api.search, q=hashtag, lang=language, since=since, until=until, tweet_mode='extended').items(count)
+    hashtag, count, since, until, tweets_per_day, days_count = prepare(hashtag, count, since, until)
+    tweets = list()
+    for i in range(0, days_count):
+        tweets_cursor = tweepy.Cursor(api.search, q=hashtag, lang=language,
+                                      since=str(until - timedelta(days=days_count - i + 1)),
+                                      until=str(until - timedelta(days=days_count - i)),
+                                      tweet_mode='extended').items(tweets_per_day)
+        tweets.extend(tweets_cursor)
 
-    return [Tweet.from_tweet_api_obj(hashtag, tweet) for tweet in tweets]
+    return pd.DataFrame([{'hashtag': hashtag, 'creation_date': tweet._json['created_at'],
+                          'content': tweet._json['full_text']} for tweet in tweets])
 
 
 def prepare(hashtag, count, since, until):
@@ -53,4 +61,18 @@ def prepare(hashtag, count, since, until):
     if not hashtag.startswith('#'):
         hashtag = '#{}'.format(hashtag)
 
-    return hashtag, count, str(since), str(until)
+    days_count = (until - since).days
+    tweets_per_day = ceil(count / float(days_count))
+
+    return hashtag, count, since, until, tweets_per_day, days_count
+
+
+def mock_sentiment(df):
+    count = len(df.index)
+    weights = [0.25, 0.6, 0.15]
+    population = [-1, 0, 1]
+    sentiment = [choices(population, weights) for i in range(0, count)]
+    df['sentiment'] = sentiment
+    
+    return df
+
