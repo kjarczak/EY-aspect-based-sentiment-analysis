@@ -29,11 +29,13 @@
         <input type="date" class="form-control" id="until" name="until">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div id="spinner" class="spinner-border" role="status" hidden="hidden">
+    </div>
 </form>
 <img id="average" hidden="hidden">
 <img id="counts" hidden="hidden">
 <div>
-    <table id="tweets-example" class="table">
+    <table id="tweets-example" class="table" hidden="hidden">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Positive</th>
