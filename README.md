@@ -8,8 +8,9 @@ Zmienność sentymentu w czasie dla wiadomości zawierających określony hashta
 System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/projects/EY.pdf)
  
 ### Główne funkcjonalności systemu
-* Tworzenie wykresów zmienności średniego sentymentu wiadomości z zadanym hashtagiem w zadanym czasie;
-* Wyświetlenie przykładowych wiadomości dla zadanego hashtaga i sentymentu.
+* Tworzenie wykresu zmienności średniego sentymentu tweetów z zadanym hashtagiem w zadanym czasie;
+* Tworzenie wykresu liczby tweetów pozytywnych, negatywnych oraz neutralnych z zadanym hashtagiem w zadanym czasie;
+* Wyświetlenie przykładowych tweetów dla zadanego hashtaga i sentymentu.
 
 ### Schemat działania rozwiązania
 <p align="center">
@@ -22,9 +23,9 @@ System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com
 ### Stos technologiczny
 |||
 | --- | --- |
-|Języki|Python, C#, SQL|
-|Frameworki|TensorFlow, Keras, ASP.NET Core |
-|Narzędzia|Visua Studio, Jupyter notebooks|
+|Języki|Python, HTML, JavaScript|
+|Frameworki|Flask, Gunicorn, Bootstrap|
+|Narzędzia|PyCharm, Sublime Text, Jupyter Notebook|
 |VCS| Git (GitHub)|
 
 ### Harmonogram
