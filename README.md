@@ -14,7 +14,7 @@ System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com
 
 ### Schemat działania rozwiązania
 <p align="center">
-  <img src="https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20dzialania.png" />
+  <img src="https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20dzialania%20v2.png" />
 </p>
 
 ### Architektura systemu na platformie Azure 
