@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/static/scripts/getStats.js"></script>
+</head>
+<body>
+<form id="inputForm">
+    <div class="form-group">
+        <label for="hashtag">Hashtag</label>
+        <input type="text" class="form-control" id="hashtag"
+               placeholder="Enter hashtag" name="hashtag">
+    </div>
+    <div class="form-group">
+        <label for="count">Count</label>
+        <input type="text" class="form-control" id="count" placeholder="Enter count of tweets" name="count">
+    </div>
+    <div class="form-group">
+        <label for="since">Since</label>
+        <input type="date" class="form-control" id="since" name="since">
+    </div>
+    <div class="form-group">
+        <label for="until">Until</label>
+        <input type="date" class="form-control" id="until" name="until">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div id="spinner" class="spinner-border" role="status" hidden="hidden">
+    </div>
+</form>
+<img id="average" hidden="hidden">
+<img id="counts" hidden="hidden">
+<div>
+    <table id="tweets-example" class="table" hidden="hidden">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Positive</th>
+            <th scope="col">Neutral</th>
+            <th scope="col">Negative</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

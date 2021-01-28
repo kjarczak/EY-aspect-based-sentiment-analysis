@@ -1,0 +1,5 @@
+matplotlib
+Flask
+python-dotenv
+python-dateutil
+pandas
