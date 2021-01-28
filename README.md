@@ -20,6 +20,13 @@ System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com
 ### Architektura systemu na platformie Azure 
 ![](https://github.com/kjarczak/EY-aspect-based-sentiment-analysis/blob/main/Diagram%20architektury%20v2.png)
 
+### Opis wykorzystanych elementów
+Azure ML i zawarte w nim narzędzie Designer pozwala na proste i szybkie tworzenie pipeline'ów ukazujących przepływ sterowania i przepływ danych pomiędzy kolejnymi krokami algorytmu. Udostępnia on też możliwość tworzenia endpointów w czasie rzeczywistym, odbierających dane od użytkowników i zwracających wyniki obliczeń, dzięki którym możliwa jest integracja z aplikacją webową. Łatwo można też w nim skorzystać z własnych zestawów danych, które wystarczy umieścić jako dataset.
+![Więcej informacji tutaj.](https://azure.microsoft.com/en-us/services/machine-learning/)
+
+App Service to platforma do tworzenia i wdrażania aplikacji internetowych. Pozawala m.in. na wdrażanie rozwiązań bezpośrednio z lokalnego repozytorium, co w kontekście testów oraz pracy projektowej jest bardzo wygodne. 
+![Więcej informacji tutaj.](https://azure.microsoft.com/en-us/services/app-service/)
+
 ### Stos technologiczny
 |||
 | --- | --- |
@@ -27,6 +34,19 @@ System tworzony jest na potrzeby firmy EY. [Link do projektu](https://github.com
 |Frameworki|Flask, Gunicorn, Bootstrap|
 |Narzędzia|PyCharm, Sublime Text, Jupyter Notebook|
 |VCS| Git (GitHub)|
+
+### Opis reprodukcji rozwiązania
+1. Stworzyć **Managment Group** agregujące subskrycje, które mają zostać wykorzystać.
+1. Pod subskrypcją stworzyć **Resource Group** zawierające **Azure Machine Learning** oraz **App Service** lub rozdzielić je na dwie **Resource Group** podpięte do różnych subskrypcji, tak, by podzielić koszta użytkowania na te subskrypcje.
+1. Przejść do **AzureML Studio**, gdzie można przystąpić do tworzenie rozwiązania:
+ 1. Posiłkując się repozytorium projektu stworzyć strukturę odpowiadającą tej z filmu prezentującego rozwiązanie.
+	1. Kod należy zmodyfikować do swoich potrzeb, czy też możliwości.
+	1. Stworzyć **Compute Cluster**, który należy podpiąć do pipeline\`a.
+	1. Stworzyć **Interference Cluster**, który jest wymagany do wystawienia endpoinu.
+	1. Jakość klastrów nalerzy dobrać do własnych możliwości oraz potrzeb.
+	1. Przesłać pipeline za pomocą przycisku **Submit**, tak by został przetestowany oraz mógł zostać wdrożony.
+	1. Wdrożyć pipeline.
+1. Wdrożyć aplikację do **App Service** (np. z lokalnego repozytorium git), ustawiając wcześniej credentiale do endpointu z pipeline\`a. 
 
 ### Harmonogram
 | Data | Opis |
